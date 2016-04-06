@@ -60,6 +60,9 @@ public:
     Q_INVOKABLE bool getTimerAutoStart();
     Q_INVOKABLE void setTimerAutoStart(bool value);
 
+    Q_INVOKABLE bool getTimerGeoLogger(); //RLAH
+    Q_INVOKABLE void setTimerGeoLogger(bool value); //RLAH
+
     Q_INVOKABLE bool getDefaultBreakInTimer();
     Q_INVOKABLE void setDefaultBreakInTimer(bool value);
 
@@ -90,6 +93,7 @@ private:
     QString endsNowByDefault;
     QString endTimeStaysFixed;
     bool timerAutoStart;
+    bool timerGeoLogger; //RLAH
     bool defaultBreakInTimer;
     QString defaultProjectId;
     QString currencyString;

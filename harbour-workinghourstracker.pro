@@ -89,4 +89,9 @@ QT += dbus \
 
 DISTFILES += \
     qml/md.js\
-    qml/CHANGELOG.md
+    qml/CHANGELOG.md \
+    qml/pages/dbases.js \
+    qml/pages/Del.qml \
+    qml/pages/EditData.qml \
+    qml/pages/Loc.qml \
+    qml/pages/SetLocation.qml

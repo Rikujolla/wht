@@ -39,6 +39,7 @@ Page {
     property double defaultDuration: 8
     property double defaultBreakDuration: 0
     property bool timerAutoStart : false
+    property bool timerGeoLogger : false //RLAH
     property int roundToNearest: 0
     property bool roundToNearestComboInitialized: false
     id: settingsPage
@@ -290,6 +291,21 @@ Page {
                         settings.setTimerAutoStart(true)
                     else
                         settings.setTimerAutoStart(false)
+                }
+            }
+            TextSwitch { //RLAH
+                id: geoLoggerSwitch
+                width: parent.width * 0.7
+                anchors.horizontalCenter: parent.horizontalCenter
+                checked: false
+                text: qsTr("Use automatic location based tracking")
+                description: qsTr("Automatic location based tracking is used.")
+                onCheckedChanged: {
+                    autoStartSwitch.description = checked ? qsTr("Automatic location based tracking is used.") : qsTr("Automatic location based tracking is used.")
+                    if(checked)
+                        settings.setTimerGeoLogger(true)
+                    else
+                        settings.setTimerGeoLogger(false)
                 }
             }
             TextSwitch {
@@ -791,6 +807,12 @@ Page {
             autoStartSwitch.checked = true
         else if(timerAutoStart === false)
             autoStartSwitch.checked = false
+
+        var timerGeoLogger = settings.getTimerGeoLogger() //RLAH
+        if(timerGeoLogger === true)
+            geoLoggerSwitch.checked = true
+        else if(timerGeoLogger === false)
+            geoLoggerSwitch.checked = false
 
         defaultBreakInTimerSwitch.checked = settings.getDefaultBreakInTimer()
 

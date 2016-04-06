@@ -135,6 +135,22 @@ void Settings::setTimerAutoStart(bool value) {
     s.endGroup();
 }
 
+bool Settings::getTimerGeoLogger() //RLAH
+{
+    QSettings s("harbour-workinghourstracker", "harbour-workinghourstracker");
+    s.beginGroup("Settings");
+    timerGeoLogger= s.value("timerGeoLogger").toBool();
+    s.endGroup();
+    return timerGeoLogger;
+}
+
+void Settings::setTimerGeoLogger(bool value) { //RLAH
+    QSettings s("harbour-workinghourstracker", "harbour-workinghourstracker");
+    s.beginGroup("Settings");
+    s.setValue("timerGeoLogger", value);
+    s.endGroup();
+}
+
 bool Settings::getDefaultBreakInTimer()
 {
     QSettings s("harbour-workinghourstracker", "harbour-workinghourstracker");

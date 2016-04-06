@@ -36,6 +36,8 @@ import Sailfish.Silica 1.0
 //import QtFeedback 5.0
 import "../config.js" as DB
 import "../helpers.js" as HH
+import QtQuick.LocalStorage 2.0 //RLAH
+import "dbases.js" as Mydbases //RLAH
 
 Page {
     id: root
@@ -373,6 +375,13 @@ Page {
                 banner.notify(qsTr("Timer was autostarted"))
                 start();
             }
+
+            // Automatically start timer if allowed in settings //RLAH
+            else if(settings.getTimerGeoLogger() && atWork){ // Have to add bool to test if in location
+                console.log("shouldnt start if not selected")
+                banner.notify(qsTr("At work, timer started"))
+                start();
+            }
         }
         currencyString = settings.getCurrencyString();
         if(!currencyString){
@@ -391,6 +400,10 @@ Page {
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("About.qml"), {dataContainer: root})
                 }
+            }
+            MenuItem { //RLAH
+                text: qsTr("Set location")
+                onClicked: pageStack.push(Qt.resolvedUrl("SetLocation.qml"))
             }
             MenuItem {
                 text: qsTr("Settings")
@@ -448,6 +461,113 @@ Page {
                 return section.text[index]
             }
         }
+
+        ///////////////////////////////////
+        ///// Start of At work Today.qml to wht transfer
+        ///////////////////////////////////
+
+        Item {
+            id: varus
+            property string inFence  //Stores the value where device is, e.g. Work, Home ..
+            property string inFenceT  //Stores the value where device is, e.g. Work, Home ..
+            property string timeInFence //Stores the time in fence in seconds
+            property string timeInFenceS //Stores the time in fence String
+            property string whatToday: ""
+            property string niceHistory: ""
+            property int hoursD //used to display status hours
+            property int minutesD //Used to display status minutes
+            property int secondsD //Used to display status seconds
+            property string secondsDT //Used to display status seconds in text format
+            //property real tolerat: 40000000.0 // Used to order two locations in order
+            property real temp1
+            property real temp2
+            property bool historyFilter : false // False showing all data in History, true the current week
+            function timeSow() {
+                hoursD = (varus.timeInFence-varus.timeInFence%3600)/3600;
+                minutesD = (varus.timeInFence-varus.timeInFence%60)/60-hoursD*60;
+                secondsD = varus.timeInFence%60
+                secondsDT = secondsD < 10 ? ("0"+ secondsD):(secondsD)
+                timeInFenceS = minutesD < 10 ? (hoursD + ":0" + minutesD + ":" + secondsDT):(hoursD + ":" + minutesD + ":" + secondsDT)
+                covTim = minutesD < 10 ? (hoursD + ":0" + minutesD):(hoursD + ":" + minutesD);
+            }
+        }
+
+        Item {
+            id: kalman
+            property real z_k_lat // Measured latitude
+            property real x_k_lat : 0.0 //Kalman latitude
+            property real p_k_lat : 1.0 //Parameter
+            property real k_k_lat
+            property real r_lat : 0.00001 //Parameter
+        }
+        Component.onCompleted:bestBus.getProperties()
+
+        /// Counting time in each location
+
+
+        Timer {
+            interval: rateAct
+            running:Qt.application.active && settings.getTimerGeoLogger()
+            repeat:true
+            onTriggered: {
+                Qt.application.active && newStatus !=4 ? saveDecr = 1 : saveDecr = ratePass/1000
+                bestBus.getProperties()
+                wifiBus.getServices()
+                Mydbases.checkFences();
+
+                if(atWork && !timerRunning) {
+                    start()
+                    timerRunning = true
+                    console.log("started")
+                }
+                else if (!atWork && timerRunning) {
+                    stop(false)
+                    timerRunning = false
+                    console.log("stopped")
+                }
+
+                //RLAH statusExtra.text = extraMsg
+                //console.log("aktiivist", varus.timeInFenceS)
+                //varus.timeSow();
+                //Mydbases.addTodayInfo();
+                //Mydbases.addHistoryData();
+                //status.text = varus.inFenceT + ": " + varus.timeInFenceS;
+                //todday.text = varus.whatToday;
+                //histor.text = varus.niceHistory;
+            }
+        }
+
+        Timer {
+            interval: ratePass
+            running: true && settings.getTimerGeoLogger()
+            repeat:true
+            onTriggered: {
+                Qt.application.active && newStatus !=4 ? saveDecr = 1 : saveDecr = ratePass/1000
+                bestBus.getProperties()
+                wifiBus.getServices()
+                Mydbases.checkFences();
+                //RLAH statusExtra.text = extraMsg
+                console.log("Passive working", atWork, timerRunning)
+                if(atWork && !timerRunning) {
+                    start()
+                    timerRunning = true
+                    console.log("startedpass")
+                }
+                else if (!atWork && timerRunning) {
+                    stop(false)
+                    timerRunning = false
+                    console.log("stoppedpass")
+                }
+
+
+            }
+        }
+
+        ///////////////////////////////////
+        ///// End of At work Today.qml to wht transfer
+        ///////////////////////////////////
+
+
 
         SilicaGridView {
             anchors.fill: parent

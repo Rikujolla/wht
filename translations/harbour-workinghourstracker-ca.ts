@@ -381,6 +381,84 @@ The source code is licensed under BSD 3-clause.</source>
     </message>
 </context>
 <context>
+    <name>Del</name>
+    <message>
+        <source>Delete data</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Warning!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The data will be deleted without warning when buttons are pressed!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete all!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete times!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete locations!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete cells info!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete wifi info!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditData</name>
+    <message>
+        <source>Selected date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select a date</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Edit data page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extend up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extending up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extend down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extending down</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FirstPage</name>
     <message>
         <source>No default project found</source>
@@ -468,6 +546,14 @@ The source code is licensed under BSD 3-clause.</source>
     </message>
     <message>
         <source>Adjust</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>At work, timer started</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -631,6 +717,97 @@ The source code is licensed under BSD 3-clause.</source>
     </message>
 </context>
 <context>
+    <name>Loc</name>
+    <message>
+        <source>Delete tables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Deleting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Update values</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Work1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location size (m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fence thickness (m)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show and set GPS info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Latitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Longitude</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show and set cells info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use CellId as a primary location source</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show and set wifi info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Require wifi to be online</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Selected wifis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available wifis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Write wifi station name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cell IDs</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LogViewer</name>
     <message>
         <source>Log viewer</source>
@@ -737,6 +914,25 @@ The source code is licensed under BSD 3-clause.</source>
     </message>
     <message>
         <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SetLocation</name>
+    <message>
+        <source>Add location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Help</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set location page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Location</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1078,6 +1274,14 @@ The source code is licensed under BSD 3-clause.</source>
         <source>Rounding happens when saving hours</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Use automatic location based tracking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic location based tracking is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WhatsNewPage</name>
@@ -1091,6 +1295,60 @@ The source code is licensed under BSD 3-clause.</source>
     </message>
     <message>
         <source>App updated to %1-%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dbases</name>
+    <message>
+        <source>Available wifis</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Free galloping</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Leaving the paddock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entering the paddock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No GPS, wifi info used instead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No GPS, cells info used instead</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Pure cell info in use</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Validating the location info</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Manual marker</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>History, this week</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>harbour-workinghourstracker</name>
+    <message>
+        <source>Do not use GPS</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
