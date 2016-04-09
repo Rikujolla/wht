@@ -92,6 +92,10 @@ The source code is licensed under BSD 3-clause.</source>
         <source>Your current version and build number: %1-%2</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>The software includes pieces of &apos;At work&apos; automatic tracking software made and integrated by Riku Lahtinen</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Add</name>
@@ -1279,7 +1283,11 @@ The source code is licensed under BSD 3-clause.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Automatic location based tracking is used.</source>
+        <source>Automatic location based tracking software &apos;At work&apos; is used.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic location based tracking software &apos;At work&apos; is not used.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

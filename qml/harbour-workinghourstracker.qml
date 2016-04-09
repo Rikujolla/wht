@@ -63,6 +63,7 @@ ApplicationWindow
     /// At work common properties
     /////////////////////////////
     property bool atWork: false //At work tells to wht if at Work //RLAH // in real life false, for testing true
+    property bool whtStarted :false
 
     property int currentIndex: 1 //
     property int listSize: 0 //

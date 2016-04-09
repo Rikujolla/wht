@@ -299,9 +299,9 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 checked: false
                 text: qsTr("Use automatic location based tracking")
-                description: qsTr("Automatic location based tracking is used.")
+                description: qsTr("Automatic location based tracking software 'At work' is used.")
                 onCheckedChanged: {
-                    autoStartSwitch.description = checked ? qsTr("Automatic location based tracking is used.") : qsTr("Automatic location based tracking is used.")
+                    geoLoggerSwitch.description = checked ? qsTr("Automatic location based tracking software 'At work' is used.") : qsTr("Automatic location based tracking software 'At work' is not used.")
                     if(checked)
                         settings.setTimerGeoLogger(true)
                     else

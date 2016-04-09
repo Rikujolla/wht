@@ -206,7 +206,10 @@ Page {
                     right: parent.right
                     margins: Theme.paddingLarge
                 }
-                text: qsTr("Contributions, bug reports and ideas are welcome. Please report issues in github. Link below.")
+                text: {
+                    qsTr("The software includes pieces of 'At work' automatic tracking software made and integrated by Riku Lahtinen") + "\n" +
+                    qsTr("Contributions, bug reports and ideas are welcome. Please report issues in github. Link below.")
+                }
             }
             Item {
                 width: parent.width

@@ -176,7 +176,8 @@ Page {
             breakDuration = defaultDur
         }
 
-        if (stopFromCommandLine) {
+        if (stopFromCommandLine || varus.stopFromAtWork) {
+            varus.stopFromAtWork = false
             var description = "Automatically saved from command line"
             var project = defaultProjectId
             var uid = DB.getUniqueId()
@@ -478,10 +479,10 @@ Page {
             property int minutesD //Used to display status minutes
             property int secondsD //Used to display status seconds
             property string secondsDT //Used to display status seconds in text format
-            //property real tolerat: 40000000.0 // Used to order two locations in order
             property real temp1
             property real temp2
             property bool historyFilter : false // False showing all data in History, true the current week
+            property bool stopFromAtWork : false //RLAH
             function timeSow() {
                 hoursD = (varus.timeInFence-varus.timeInFence%3600)/3600;
                 minutesD = (varus.timeInFence-varus.timeInFence%60)/60-hoursD*60;
@@ -514,32 +515,13 @@ Page {
                 bestBus.getProperties()
                 wifiBus.getServices()
                 Mydbases.checkFences();
-
-                if(atWork && !timerRunning) {
-                    start()
-                    timerRunning = true
-                    console.log("started")
-                }
-                else if (!atWork && timerRunning) {
-                    stop(false)
-                    timerRunning = false
-                    console.log("stopped")
-                }
-
                 //RLAH statusExtra.text = extraMsg
-                //console.log("aktiivist", varus.timeInFenceS)
-                //varus.timeSow();
-                //Mydbases.addTodayInfo();
-                //Mydbases.addHistoryData();
-                //status.text = varus.inFenceT + ": " + varus.timeInFenceS;
-                //todday.text = varus.whatToday;
-                //histor.text = varus.niceHistory;
             }
         }
 
         Timer {
             interval: ratePass
-            running: true && settings.getTimerGeoLogger()
+            running: settings.getTimerGeoLogger()
             repeat:true
             onTriggered: {
                 Qt.application.active && newStatus !=4 ? saveDecr = 1 : saveDecr = ratePass/1000
@@ -549,14 +531,16 @@ Page {
                 //RLAH statusExtra.text = extraMsg
                 console.log("Passive working", atWork, timerRunning)
                 if(atWork && !timerRunning) {
-                    start()
+                    varus.stopFromAtWork = false
                     timerRunning = true
-                    console.log("startedpass")
+                    start()
+                    console.log("At work tells in the location")
                 }
                 else if (!atWork && timerRunning) {
-                    stop(false)
+                    varus.stopFromAtWork = true
+                    stop()
                     timerRunning = false
-                    console.log("stoppedpass")
+                    console.log("At work tells not in the location")
                 }
 
 
